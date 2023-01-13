@@ -1,0 +1,461 @@
+@import 'reset.css';
+body {
+  font-family: Roboto, sans-serif;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.black-background {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  visibility: hidden;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: black;
+}
+
+.header-shape {
+  position: absolute;
+  inset: -45% 0 0 14%;
+  z-index: 1;
+  width: 75%;
+  filter: contrast(0.5);
+}
+
+.header-title {
+  position: absolute;
+  inset: -50% 0 35% 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 5rem;
+  margin: 0 0 40px 0;
+  font-size: 5rem;
+  text-transform: uppercase;
+  color: #C5C3C3;
+}
+
+.header-title:before {
+  content: attr(data-text);
+  position: absolute;
+  color: transparent;
+  line-height: 0.9;
+  background: linear-gradient(#FF9F1C, #f3E975);
+  -webkit-background-clip: text;
+  animation: 5s swing infinite;
+  animation-direction: alternate;
+}
+
+.cards-container {
+  margin-top: 225px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 150px;
+  box-shadow: rgba(50, 50, 93, 0.15) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.25) 0px 18px 36px -18px inset;
+}
+.card .icon {
+  max-width: 60px;
+  align-self: flex-end;
+}
+.card .card-content {
+  margin: 0;
+}
+
+.icon {
+  border-radius: 50%;
+}
+
+.flashlight-composition {
+  position: absolute;
+  right: -30%;
+  bottom: 0;
+  z-index: 15;
+  grid-area: flashlight;
+  rotate: 280deg;
+  transform-origin: bottom left;
+  animation: rotation 10s infinite alternate;
+}
+
+.flashlight {
+  max-width: 450px;
+}
+
+.power-button {
+  position: absolute;
+  inset: 364px 0 0 63px;
+  max-width: 23px;
+  rotate: 45deg;
+  filter: hue-rotate(86deg) brightness(200%);
+  cursor: pointer;
+}
+
+.shootingStarContainer:nth-child(1) {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transform: rotate(45deg);
+}
+.shootingStarContainer:nth-child(2) {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transform: rotate(44deg);
+}
+
+.shootingStar {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(-70deg, #FFEBEB, #000000);
+}
+.shootingStarContainer:nth-child(1) .shootingStar:nth-child(1) {
+  top: calc(61%);
+  left: calc(33%);
+  opacity: 0.86;
+  animation: shootingFrames 2547ms ease-in-out 7234ms infinite;
+}
+.shootingStarContainer:nth-child(1) .shootingStar:nth-child(2) {
+  top: calc(10%);
+  left: calc(13%);
+  opacity: 0.82;
+  animation: shootingFrames 1580ms ease-in-out 1518ms infinite;
+}
+.shootingStarContainer:nth-child(1) .shootingStar:nth-child(3) {
+  top: calc(7%);
+  left: calc(31%);
+  opacity: 0.24;
+  animation: shootingFrames 2597ms ease-in-out 7036ms infinite;
+}
+.shootingStarContainer:nth-child(1) .shootingStar:nth-child(4) {
+  top: calc(13%);
+  left: calc(16%);
+  opacity: 0.41;
+  animation: shootingFrames 2385ms ease-in-out 7315ms infinite;
+}
+.shootingStarContainer:nth-child(1) .shootingStar:nth-child(5) {
+  top: calc(55%);
+  left: calc(50%);
+  opacity: 0.89;
+  animation: shootingFrames 1496ms ease-in-out 2939ms infinite;
+}
+.shootingStarContainer:nth-child(1) .shootingStar:nth-child(6) {
+  top: calc(67%);
+  left: calc(16%);
+  opacity: 0.36;
+  animation: shootingFrames 2915ms ease-in-out 4026ms infinite;
+}
+.shootingStarContainer:nth-child(1) .shootingStar:nth-child(7) {
+  top: calc(2%);
+  left: calc(35%);
+  opacity: 0.28;
+  animation: shootingFrames 2080ms ease-in-out 2426ms infinite;
+}
+.shootingStarContainer:nth-child(1) .shootingStar:nth-child(8) {
+  top: calc(51%);
+  left: calc(30%);
+  opacity: 0.85;
+  animation: shootingFrames 1637ms ease-in-out 6080ms infinite;
+}
+.shootingStarContainer:nth-child(1) .shootingStar:nth-child(9) {
+  top: calc(45%);
+  left: calc(30%);
+  opacity: 0.18;
+  animation: shootingFrames 2446ms ease-in-out 3507ms infinite;
+}
+.shootingStarContainer:nth-child(1) .shootingStar:nth-child(10) {
+  top: calc(78%);
+  left: calc(5%);
+  opacity: 0.82;
+  animation: shootingFrames 1037ms ease-in-out 5235ms infinite;
+}
+.shootingStarContainer:nth-child(2) .shootingStar:nth-child(1) {
+  top: calc(85%);
+  left: calc(20%);
+  opacity: 0.29;
+  animation: shootingFrames 2619ms ease-in-out 4981ms infinite;
+}
+.shootingStarContainer:nth-child(2) .shootingStar:nth-child(2) {
+  top: calc(16%);
+  left: calc(12%);
+  opacity: 0.36;
+  animation: shootingFrames 2344ms ease-in-out 4751ms infinite;
+}
+.shootingStarContainer:nth-child(2) .shootingStar:nth-child(3) {
+  top: calc(52%);
+  left: calc(17%);
+  opacity: 0.61;
+  animation: shootingFrames 2139ms ease-in-out 6581ms infinite;
+}
+.shootingStarContainer:nth-child(2) .shootingStar:nth-child(4) {
+  top: calc(42%);
+  left: calc(38%);
+  opacity: 0.71;
+  animation: shootingFrames 2222ms ease-in-out 4769ms infinite;
+}
+.shootingStarContainer:nth-child(2) .shootingStar:nth-child(5) {
+  top: calc(62%);
+  left: calc(7%);
+  opacity: 0.76;
+  animation: shootingFrames 2611ms ease-in-out 5915ms infinite;
+}
+.shootingStarContainer:nth-child(2) .shootingStar:nth-child(6) {
+  top: calc(87%);
+  left: calc(46%);
+  opacity: 0.31;
+  animation: shootingFrames 2450ms ease-in-out 6880ms infinite;
+}
+.shootingStarContainer:nth-child(2) .shootingStar:nth-child(7) {
+  top: calc(40%);
+  left: calc(46%);
+  opacity: 0.49;
+  animation: shootingFrames 1917ms ease-in-out 1953ms infinite;
+}
+.shootingStarContainer:nth-child(2) .shootingStar:nth-child(8) {
+  top: calc(46%);
+  left: calc(27%);
+  opacity: 0.48;
+  animation: shootingFrames 2731ms ease-in-out 2958ms infinite;
+}
+.shootingStarContainer:nth-child(2) .shootingStar:nth-child(9) {
+  top: calc(19%);
+  left: calc(35%);
+  opacity: 0.8;
+  animation: shootingFrames 1485ms ease-in-out 3611ms infinite;
+}
+.shootingStarContainer:nth-child(2) .shootingStar:nth-child(10) {
+  top: calc(35%);
+  left: calc(35%);
+  opacity: 0.6;
+  animation: shootingFrames 1849ms ease-in-out 5422ms infinite;
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #000000 url("https://wolf.drjm.co.uk/nightsky/stars.jpg") repeat top center;
+}
+
+strong {
+  font-weight: 900;
+}
+
+.canvas-wrapper {
+  display: grid;
+  grid-template-areas: "restybrix . ubicoin" ". introduction .";
+  height: 100%;
+  margin-left: 8%;
+}
+.canvas-wrapper .canvas + .canvas {
+  margin-left: 40px;
+}
+
+.canvas-introduction {
+  left: 48%;
+  grid-area: introduction;
+}
+
+.canvas-restybrix {
+  grid-area: restybrix;
+}
+
+.canvas-ubicoin {
+  grid-area: ubicoin;
+}
+
+.canvas {
+  position: relative;
+  height: 400px;
+  padding: 20px;
+  margin: -150px;
+}
+.canvas:hover .canvas_copy_title, .canvas:hover .canvas_img {
+  opacity: 1;
+}
+.canvas:hover .canvas_border, .canvas:hover .canvas_img-wrapper {
+  transform: rotate(-14deg) skew(-14deg) scale(0.96);
+}
+.canvas:hover .canvas_img {
+  transform: scale3d(1, 1, 1);
+}
+.canvas:hover .canvas_copy_title {
+  transform: translateX(0);
+}
+.canvas:hover .rect-gradient {
+  animation: draw-line 3s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.canvas_border {
+  position: absolute;
+  inset: 0 0 0 -30px;
+  width: 60%;
+  height: 60%;
+  z-index: 0;
+}
+.canvas_border svg {
+  height: 100%;
+  width: 100%;
+}
+
+.rect-gradient {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: erase-line 0.5s ease-in-out forwards;
+}
+
+.canvas_img-wrapper {
+  position: absolute;
+  z-index: 10;
+}
+.canvas_img-wrapper:hover {
+  opacity: 1;
+}
+
+.canvas_img {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 50%;
+  transform: scale3d(0.9, 0.9, 0.9);
+}
+
+.canvas_copy {
+  position: absolute;
+  bottom: 40%;
+  color: #f3E975;
+  text-transform: uppercase;
+}
+
+.canvas_copy--left {
+  left: -5%;
+}
+
+.canvas_copy_title {
+  display: block;
+  font-size: 45px;
+  color: #C5C3C3;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s;
+}
+
+.canvas_border, .canvas_img-wrapper, .canvas_img {
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.restybrix-image {
+  animation: 5s fade-in-first 4.5s infinite alternate;
+}
+
+.ubicoin-image {
+  opacity: 1;
+  animation: 5s fade-in-second 4.5s infinite alternate;
+}
+
+.introduction-image {
+  opacity: 0.7;
+  animation: 4s fade-in-third 2s infinite alternate;
+}
+
+.restybrix-image:hover, .ubicoin-image:hover, .introduction-image:hover {
+  display: block;
+  opacity: 1 !important;
+  filter: grayscale(1);
+}
+
+@keyframes swing {
+  0% {
+    clip-path: ellipse(120px 120px at -2.54% -9.25%);
+  }
+  50% {
+    clip-path: ellipse(120px 120px at 49.66% 64.36%);
+  }
+  100% {
+    clip-path: ellipse(120px 120px at 102.62% -1.61%);
+  }
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(-15deg);
+  }
+}
+@keyframes shootingFrames {
+  0% {
+    width: 0;
+    transform: translateX(0);
+  }
+  30% {
+    width: 100px;
+  }
+  100% {
+    width: 0;
+    transform: translateX(811px);
+  }
+}
+@keyframes draw-line {
+  from {
+    stroke-dashoffset: 2000;
+  }
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+@keyframes erase-line {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 2000;
+  }
+}
+@keyframes fade-in-first {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in-second {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+@keyframes fade-in-third {
+  0% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

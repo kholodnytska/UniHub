@@ -1,0 +1,364 @@
+@import 'reset.css';
+
+$color-white: #FFEBEB;
+$color-light-yellow: #f3E975;
+$color-light-green: #42CBC3;
+$color-violet: #8A2BE2;
+$color-red: #f70000;
+$color-orange: #FF9F1C;
+$color-gray: #C5C3C3;
+$color-dark: #000000;
+
+$shooting-star-container-count: 2;
+$star-count: 10;
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.black-background {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+
+  visibility: hidden;
+  min-width: 100%;
+  min-height: 100%;
+
+  background-color: black;
+}
+
+.header-shape {
+  position: absolute;
+  inset: -45% 0 0 14%;
+  z-index: 1;
+
+  width: 75%;
+
+  filter: contrast(0.5);
+}
+
+.header-title {
+  position: absolute;
+  inset: -50% 0 35% 0;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 5rem;
+  margin: 0 0 40px 0;
+
+  font-size: 5rem;
+  text-transform: uppercase;
+  color: $color-gray;
+}
+
+.header-title:before{
+  content: attr(data-text);
+  position: absolute;
+
+  color: transparent;
+  line-height: 0.9;
+  background: linear-gradient($color-orange, $color-light-yellow);
+  -webkit-background-clip: text;
+
+  animation: 5s swing infinite;
+  animation-direction: alternate;
+}
+
+.cards-container {
+  margin-top: 225px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 150px;
+  box-shadow: rgb(50 50 93 / 15%) 0 30px 60px -12px inset, rgb(0 0 0 / 25%) 0px 18px 36px -18px inset;
+
+  .icon {
+    max-width: 60px;
+    align-self: flex-end;
+  }
+
+  .card-content {
+    margin: 0;
+  }
+}
+
+.icon {
+  border-radius: 50%;
+}
+
+.flashlight-composition {
+  position: absolute;
+  right: -30%;
+  bottom: 0;
+  z-index: 15;
+
+  grid-area: flashlight;
+
+  rotate: 280deg;
+  transform-origin: bottom left;
+
+  animation: rotation 10s infinite alternate;
+}
+
+.flashlight {
+  max-width: 450px;
+}
+
+.power-button {
+  position: absolute;
+  inset: 364px 0 0 63px;
+  max-width: 23px;
+  rotate: 45deg;
+  filter: hue-rotate(86deg) brightness(200%);
+  cursor: pointer;
+}
+
+.shootingStarContainer {
+  @for $j from 1 through $shooting-star-container-count {
+    &:nth-child(#{$j}) {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      transform: rotate(random(10)+35deg);
+    }
+  }
+}
+
+.shootingStar {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(-70deg, $color-white, $color-dark);
+
+  @for $j from 1 through $shooting-star-container-count {
+    @for $i from 1 through $star-count {
+      .shootingStarContainer:nth-child(#{$j}) &:nth-child(#{$i}) {
+        $delay: random(6000) + 1500ms;
+        $duration: random(2000) + 1000ms;
+
+        top: calc(#{random(98) + 1%});
+        left: calc(#{random(50) + 0%});
+        opacity: random(75) / 100 + 0.15;
+
+        animation: shootingFrames $duration ease-in-out $delay infinite;
+      }
+    }
+  }
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  //z-index: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  background: $color-dark url('https://wolf.drjm.co.uk/nightsky/stars.jpg') repeat top center;
+}
+
+strong {
+  font-weight: 900;
+}
+
+.canvas-wrapper {
+  display: grid;
+  grid-template-areas:
+        'restybrix . ubicoin'
+        '. introduction .';
+  height: 100%;
+  margin-left: 8%;
+
+  .canvas + .canvas  {
+    margin-left: 40px;
+  }
+}
+
+.canvas-introduction {
+  left: 48%;
+  grid-area: introduction;
+}
+
+.canvas-restybrix {
+  grid-area: restybrix;
+}
+
+.canvas-ubicoin {
+  grid-area: ubicoin;
+}
+
+.canvas {
+  position: relative;
+
+  height: 400px;
+  padding: 20px;
+  margin: -150px;
+
+  &:hover {
+    .canvas_copy_title, .canvas_img {
+      opacity: 1;
+    }
+    .canvas_border, .canvas_img-wrapper {
+      transform: rotate(-14deg) skew(-14deg) scale(0.96);
+    }
+    .canvas_img {
+      transform: scale3d(1,1,1);
+    }
+    .canvas_copy_title {
+      transform: translateX(0);
+    }
+    .rect-gradient {
+      animation: draw-line 3s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    }
+  }
+}
+
+.canvas_border {
+  position: absolute;
+  inset: 0 0 0 -30px;
+  width: 60%;
+  height: 60%;
+  z-index: 0;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.rect-gradient {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: erase-line 0.5s ease-in-out forwards;
+}
+
+.canvas_img-wrapper {
+  position: absolute;
+  z-index: 10;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.canvas_img {
+  max-width: 200px;
+  max-height: 200px;
+
+  border-radius: 50%;
+  transform: scale3d(.9,.9,.9);
+}
+
+.canvas_copy {
+  position: absolute;
+  bottom: 40%;
+
+  color: $color-light-yellow;
+  text-transform: uppercase;
+}
+
+.canvas_copy--left {
+  left: -5%;
+}
+
+.canvas_copy_title {
+  display: block;
+
+  font-size: 45px;
+  color: $color-gray;
+  text-transform: uppercase;
+  opacity: 0;
+
+  transform: translateX(-80px);
+  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s;
+}
+
+.canvas_border, .canvas_img-wrapper, .canvas_img  {
+  transition: all .5s ease-in-out 0s;
+}
+
+.restybrix-image {
+  animation: 5s fade-in-first 4.5s infinite alternate;
+}
+
+.ubicoin-image {
+  opacity: 1;
+  animation: 5s fade-in-second 4.5s infinite alternate;
+}
+
+.introduction-image {
+  opacity: 0.7;
+  animation: 4s fade-in-third 2s infinite alternate;
+}
+
+.restybrix-image:hover, .ubicoin-image:hover, .introduction-image:hover {
+  display: block;
+  opacity: 1 !important;
+  filter: grayscale(1);
+}
+
+@keyframes swing {
+  0% { clip-path: ellipse(120px 120px at -2.54% -9.25%) }
+  50% { clip-path: ellipse(120px 120px at 49.66% 64.36%) }
+  100% { clip-path: ellipse(120px 120px at 102.62% -1.61%) }
+}
+
+@keyframes rotation {
+  0% { transform: rotate(0deg) }
+  50% { transform: rotate(20deg) }
+  100% { transform: rotate(-15deg) }
+}
+
+@keyframes shootingFrames {
+  0% {
+    width: 0;
+    transform: translateX(0);
+  }
+  30% {
+    width: 100px;
+  }
+  100% {
+    width: 0;
+    transform: translateX(random(100) + 800px);
+  }
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: 2000 }
+  to { stroke-dashoffset: 1000 }
+}
+
+@keyframes erase-line {
+  from { stroke-dashoffset: 1000 }
+  to { stroke-dashoffset: 2000 }
+}
+
+@keyframes fade-in-first {
+  0% { opacity: 0.3 }
+  50% { opacity: 0.7 }
+  100% { opacity: 1 }
+}
+
+@keyframes fade-in-second {
+  0% { opacity: 1 }
+  50% { opacity: 0.7 }
+  100% { opacity: 0.3 }
+}
+
+@keyframes fade-in-third {
+  0% { opacity: 0.7 }
+  100% { opacity: 1 }
+}

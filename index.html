@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="page">
+        <img class="header-shape" src="assets/oval-black.png" alt="Background shape">
+<!--        <div class="shootingStarContainer" *ngFor="let number of numberOfStarContainers;">-->
+<!--            <div class="shootingStar" *ngFor="let number of numberOfShootingStars;"></div>-->
+        </div>
+        <div class="stars"></div>
+
+        <h1 data-text="UniHub" class="header-title">UniHub</h1>
+
+        <div class="cards-container">
+            <div class="canvas-wrapper">
+                <a href="#" class="canvas canvas-introduction card">
+                    <div class="canvas_border">
+                        <svg>
+                            <defs><linearGradient id="grad-orange" x1="0%" y1="0%" x2="40%" y2="0%"><stop offset="0%" style="stop-color:#f3E975;stop-opacity:1"></stop><stop offset="40%" style="stop-color:#FF9F1C;stop-opacity:1"></stop></linearGradient><linearGradient id="grad-red" x1="0%" y1="0%" x2="40%" y2="0%"><stop offset="0%" stop-color="#D34F48"></stop><stop offset="40%" stop-color="#772522"></stop></linearGradient></defs>
+                            <rect id="rect-grad" class="rect-gradient" fill="none" stroke="url(#grad-orange)" stroke-linecap="square" stroke-width="4" stroke-miterlimit="30" width="60%" height="60%"></rect>
+                        </svg>
+                    </div>
+                    <div class="canvas_img-wrapper">
+                        <img class="canvas_img introduction-image" src="assets/icons/introduction.png" alt="">
+                    </div>
+                    <div class="canvas_copy canvas_copy--left">
+                        <strong class="canvas_copy_title">Introduction</strong>
+                    </div>
+                </a>
+                <a href="#" class="canvas canvas-restybrix card">
+                    <div class="canvas_border">
+                        <svg>
+                            <defs><linearGradient id="grad-orange" x1="0%" y1="0%" x2="40%" y2="0%"><stop offset="0%" style="stop-color:rgb(253,137,68);stop-opacity:1"></stop><stop offset="40%" style="stop-color:rgb(153,75,23);stop-opacity:1"></stop></linearGradient><linearGradient id="grad-red" x1="0%" y1="0%" x2="40%" y2="0%"><stop offset="0%" stop-color="#D34F48"></stop><stop offset="40%" stop-color="#772522"></stop></linearGradient></defs>
+                            <rect id="rect-grad" class="rect-gradient" fill="none" stroke="url(#grad-orange)" stroke-linecap="square" stroke-width="4" stroke-miterlimit="30" width="60%" height="60%"></rect>
+                        </svg>
+                    </div>
+                    <div class="canvas_img-wrapper">
+                        <img class="canvas_img restybrix-image" src="assets/icons/restybrix.png" alt="">
+                    </div>
+                    <div class="canvas_copy canvas_copy--left">
+                        <strong class="canvas_copy_title">Restybrix</strong>
+                    </div>
+                </a>
+                <a href="#" class="canvas canvas-ubicoin card">
+                    <div class="canvas_border">
+                        <svg>
+                            <defs><linearGradient id="grad-orange" x1="0%" y1="0%" x2="40%" y2="0%"><stop offset="0%" style="stop-color:rgb(253,137,68);stop-opacity:1"></stop><stop offset="40%" style="stop-color:rgb(153,75,23);stop-opacity:1"></stop></linearGradient><linearGradient id="grad-red" x1="0%" y1="0%" x2="40%" y2="0%"><stop offset="0%" stop-color="#D34F48"></stop><stop offset="40%" stop-color="#772522"></stop></linearGradient></defs>
+                            <rect id="rect-grad" class="rect-gradient" fill="none" stroke="url(#grad-orange)" stroke-linecap="square" stroke-width="4" stroke-miterlimit="30" width="60%" height="60%"></rect>
+                        </svg>
+                    </div>
+                    <div class="canvas_img-wrapper">
+                        <img class="canvas_img ubicoin-image" src="assets/icons/ubicoin.png" alt="">
+                    </div>
+                    <div class="canvas_copy">
+                        <strong class="canvas_copy_title">Ubicoin</strong>
+                    </div>
+                </a>
+            </div>
+            <div class="flashlight-composition">
+                <img class="flashlight" src="assets/flashlight2.png" alt="Flashlight">
+<!--                     [ngStyle]="{ 'filter': getFilters() }">-->
+                <img class="power-button" src="assets/power-button.png" alt="Power button"
+                     onclick="changeBackground()">
+            </div>
+        </div>
+    </div>
+    <div class="black-background"></div>
+
+</body>
+</html>
